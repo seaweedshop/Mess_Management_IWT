@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Environment and deployment secrets
+.env
+.env.*
+!.env.example
+.vercel/
+SEED_CREDENTIALS.txt
+**/*CREDENTIALS*
+**/*credentials*
+**/*secrets*
+**/*.pem
+**/*.key
+
+# Build and tooling output
+dist/
+build/
+coverage/
+.vite/
+*.log
+
+# Local editor and OS files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+Thumbs.db
+.DS_Store

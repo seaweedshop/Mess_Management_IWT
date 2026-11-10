@@ -1,0 +1,526 @@
+@import "tailwindcss";
+
+:root {
+  --straw: #e8dcb5;
+  --straw-soft: #f3ebd3;
+  --cream: #faf6ea;
+  --white: #ffffff;
+  --navy: #14213d;
+  --navy-soft: #2b3a5c;
+  --muted: #6b7280;
+  --line: #e6dfc8;
+  --veg: #3f7d58;
+  --alert: #b5483a;
+  --warning: #c98a1b;
+  --sidebar-bg: #14213d;
+  --sidebar-text: #faf6ea;
+  --sidebar-muted: rgb(250 246 234 / 0.68);
+  --sidebar-hover-bg: rgb(232 220 181 / 0.12);
+  --shadow: 0 16px 38px rgba(20, 33, 61, 0.08);
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+.dark {
+  --cream: #0e1730;
+  --white: #172342;
+  --navy: #f3ebd3;
+  --navy-soft: #c9d1e4;
+  --muted: #b8c0d0;
+  --line: #31405e;
+  --sidebar-bg: #0e1730;
+  --sidebar-text: #faf6ea;
+  --sidebar-muted: rgb(250 246 234 / 0.68);
+  --sidebar-hover-bg: rgb(232 220 181 / 0.16);
+  --shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--cream);
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--cream);
+  color: var(--navy);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a,
+select {
+  cursor: pointer;
+}
+
+button,
+input,
+textarea,
+select {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--straw) 72%, var(--navy));
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+p {
+  color: var(--navy-soft);
+}
+
+/* Shared surfaces and controls */
+.rounded-\[1\.65rem\],
+.rounded-\[1\.75rem\],
+.rounded-\[2rem\],
+.rounded-2xl,
+.rounded-xl {
+  border-radius: 11px !important;
+}
+
+.rounded-full {
+  border-radius: 999px !important;
+}
+
+div[class*="border-black"],
+div[class*="border-[#dbacfc]"] {
+  border-color: var(--line) !important;
+}
+
+div[class*="bg-white"],
+button[class*="bg-white"],
+input,
+textarea,
+select {
+  background-color: var(--white) !important;
+}
+
+div[class*="shadow-"],
+.shadow-xl,
+.shadow-2xl {
+  box-shadow: none !important;
+}
+
+div[class*="shadow-"]:hover,
+button[class*="hover:-translate-y"] > div,
+button[class*="hover:-translate-y"]:hover > div {
+  box-shadow: var(--shadow) !important;
+}
+
+/* Replace the old utility palette without touching component behavior. */
+[class*="bg-[#dbacfc]"],
+[class*="bg-[#f2e5ff]"],
+[class*="bg-[#f7edff]"],
+[class*="bg-[#f5eaff]"],
+[class*="bg-[#f1e4ff]"],
+[class*="bg-[#fbf6ff]"] {
+  background-color: var(--straw-soft) !important;
+}
+
+[class*="bg-[#171322]"] {
+  background-color: var(--navy) !important;
+  color: var(--cream) !important;
+}
+
+[class*="text-[#171322]"] {
+  color: var(--navy) !important;
+}
+
+[class*="text-[#dbacfc]"],
+[class*="text-[#b66cf0]"],
+[class*="text-[#6b398e]"],
+[class*="text-[#7b4e9a]"] {
+  color: var(--navy) !important;
+}
+
+[class*="bg-[#e6f7ed]"] {
+  background-color: color-mix(in srgb, var(--veg) 14%, var(--white)) !important;
+}
+
+[class*="bg-[#fff1ce]"] {
+  background-color: color-mix(in srgb, var(--warning) 16%, var(--white)) !important;
+}
+
+[class*="bg-[#f0e5f8]"] {
+  background-color: var(--straw-soft) !important;
+}
+
+[class*="text-black"],
+[class*="text-white"] {
+  color: var(--navy-soft);
+}
+
+[class*="text-white/"] {
+  color: color-mix(in srgb, var(--cream) 72%, transparent) !important;
+}
+
+[class*="text-black/"] {
+  color: color-mix(in srgb, var(--navy) 62%, transparent) !important;
+}
+
+/* Buttons, form fields, badges */
+button {
+  color: var(--navy);
+}
+
+button[class*="bg-[#171322]"],
+button[class*="bg-[#dbacfc]"],
+button[class*="variant-dark"] {
+  background: var(--navy) !important;
+  color: var(--cream) !important;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button[class*="border"] {
+  border-color: var(--navy-soft);
+}
+
+input,
+textarea,
+select {
+  border: 1px solid var(--line) !important;
+  border-radius: 8px !important;
+  color: var(--navy) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--navy) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--straw) 55%, transparent);
+}
+
+.status-badge {
+  border: 1px solid currentColor;
+  border-radius: 999px !important;
+}
+
+.status-paid {
+  background: color-mix(in srgb, var(--veg) 14%, var(--white)) !important;
+  color: var(--veg) !important;
+}
+
+.status-in-progress {
+  background: color-mix(in srgb, var(--warning) 16%, var(--white)) !important;
+  color: var(--warning) !important;
+}
+
+.status-pending {
+  background: color-mix(in srgb, var(--alert) 12%, var(--white)) !important;
+  color: var(--alert) !important;
+}
+
+/* App shell */
+main {
+  background: var(--cream);
+}
+
+aside {
+  border: 0 !important;
+  background: var(--sidebar-bg) !important;
+  color: var(--sidebar-text) !important;
+}
+
+aside nav button,
+aside nav button[class*="text-"],
+aside nav button *,
+aside > div:last-child,
+aside > div:last-child * {
+  color: var(--sidebar-text) !important;
+}
+
+aside nav button {
+  border-left: 3px solid transparent;
+  border-radius: 0 8px 8px 0 !important;
+  display: flex !important;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 44px;
+  padding: 0.75rem;
+  color: var(--sidebar-text) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  line-height: 1.25;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none;
+}
+
+aside nav button svg,
+aside nav button span {
+  display: inline-flex !important;
+  color: var(--sidebar-text) !important;
+  stroke: currentColor;
+  visibility: visible !important;
+}
+
+aside nav button:hover,
+aside nav button[class*="bg-[#f2e5ff]"] {
+  border-left-color: var(--straw);
+  background: var(--sidebar-hover-bg) !important;
+  color: var(--straw) !important;
+  opacity: 1;
+}
+
+aside nav button:hover *,
+aside nav button[class*="bg-[#f2e5ff]"] * {
+  color: var(--straw) !important;
+}
+
+aside > div:first-child span {
+  background: var(--straw) !important;
+  color: var(--navy) !important;
+}
+
+aside > div:last-child {
+  border: 1px solid color-mix(in srgb, var(--cream) 18%, transparent);
+  background: color-mix(in srgb, var(--cream) 8%, transparent) !important;
+}
+
+aside > div:last-child p,
+aside > div:last-child small {
+  color: var(--sidebar-muted) !important;
+}
+
+aside > div:last-child p:first-child {
+  color: var(--sidebar-text) !important;
+}
+
+aside > div:last-child button {
+  color: var(--straw) !important;
+}
+
+aside > div:last-child button:hover {
+  color: var(--sidebar-text) !important;
+  text-decoration: underline;
+}
+
+aside nav button:focus-visible,
+aside > div:last-child button:focus-visible {
+  outline: 3px solid var(--straw);
+  outline-offset: 2px;
+}
+
+header {
+  border-color: var(--line) !important;
+  background: color-mix(in srgb, var(--cream) 92%, transparent) !important;
+}
+
+header h1 {
+  font-size: 1.65rem;
+}
+
+header button[aria-label] {
+  border-color: var(--navy) !important;
+  background: var(--straw) !important;
+  color: var(--navy) !important;
+}
+
+/* Auth split layout */
+main:has(+ section),
+body > #root > main {
+  background: var(--cream);
+}
+
+/* Hero and editorial content */
+section[class*="bg-[#dbacfc]"] {
+  background: var(--straw) !important;
+  border-radius: 12px !important;
+}
+
+section[class*="bg-[#dbacfc]"] h1,
+section[class*="bg-[#dbacfc]"] h2,
+section[class*="bg-[#dbacfc]"] p {
+  color: var(--navy);
+}
+
+section[class*="bg-[#dbacfc]"] button {
+  background: var(--navy) !important;
+  color: var(--cream) !important;
+}
+
+/* Menu cards and meal strips */
+.group,
+.fees-page > div > div,
+table,
+.feedback-kind {
+  color: var(--navy);
+}
+
+.group button:hover,
+.feedback-kind + span {
+  color: var(--navy);
+}
+
+.hide-scrollbar button {
+  border-radius: 8px !important;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.hide-scrollbar button[class*="bg-[#dbacfc]"] {
+  border-color: var(--navy);
+  background: var(--straw) !important;
+}
+
+/* Dialogs, notifications and loading states */
+.fixed.inset-0 {
+  background: color-mix(in srgb, var(--navy) 72%, transparent) !important;
+}
+
+.qr-dialog,
+.coupon-loading-dialog,
+.coupon-purchase-dialog,
+.fixed.inset-0 > div[role="dialog"] {
+  border: 1px solid var(--line);
+  border-radius: 12px !important;
+  background: var(--white) !important;
+  color: var(--navy) !important;
+}
+
+.qr-dialog-title,
+.qr-dialog-amount,
+.coupon-loading-text {
+  color: var(--navy) !important;
+}
+
+/* Admin tables and charts */
+table thead {
+  background: var(--straw-soft) !important;
+}
+
+table th {
+  color: var(--navy-soft) !important;
+}
+
+table tbody tr {
+  border-color: var(--line) !important;
+}
+
+svg polyline {
+  stroke: var(--veg);
+}
+
+/* Small-screen navigation and layout */
+@media (max-width: 1023px) {
+  main {
+    padding-bottom: 5.5rem;
+  }
+
+  main > header {
+    padding: 1rem 1.25rem;
+  }
+
+  main > header h1 {
+    font-size: 1.45rem;
+  }
+
+  nav.fixed {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    border: 1px solid var(--line) !important;
+    border-radius: 12px !important;
+    background: var(--navy) !important;
+    box-shadow: var(--shadow) !important;
+  }
+
+  nav.fixed button {
+    border-radius: 7px !important;
+    display: flex !important;
+    min-width: 52px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8125rem !important;
+    font-weight: 600 !important;
+    color: var(--sidebar-text) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  nav.fixed button *,
+  nav.fixed button:visited,
+  nav.fixed button:active {
+    color: var(--sidebar-text) !important;
+    visibility: visible !important;
+  }
+
+  nav.fixed button[class*="bg-[#f2e5ff]"] {
+    background: var(--straw) !important;
+    color: var(--navy) !important;
+  }
+
+  nav.fixed button[class*="bg-[#f2e5ff]"] * {
+    color: var(--navy) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  h1,
+  h2 {
+    letter-spacing: -0.025em;
+  }
+
+  section[class*="bg-[#dbacfc]"] {
+    padding: 1.5rem !important;
+  }
+
+  section[class*="bg-[#dbacfc]"] h2 {
+    font-size: 2.45rem;
+  }
+
+  .fees-page [class*="grid-cols"],
+  [class*="lg:grid-cols"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
